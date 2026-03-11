@@ -10,23 +10,23 @@ class EudicWordBook {
 
     async add(word: string) {
         if (!this.token) {
-            console.log("配置失败：请在 Workflow 环境变量中添加 eudic_token");
+            // EudicWordBook.notify("配置失败：请在 Workflow 环境变量中添加 eudic_token");
             return;
         }
 
         try {
             const success = await this.pushWord(word);
             if (success) {
-                console.log(`添加 [${word}] 到欧路生词本成功`);
+                // do nothing on success to avoid piping text into `say` node
             } else {
-                console.log(`欧路添加生词本失败，请确认你的 Token`);
+                // do nothing
             }
         } catch (e: any) {
             let errorMsg = e.message || e.toString();
             if (e.data) {
                 errorMsg += ' ' + JSON.stringify(e.data);
             }
-            console.log(`欧路接口报错: ${errorMsg}`);
+            // do not log errors to avoid piping into `say`
         }
     }
 

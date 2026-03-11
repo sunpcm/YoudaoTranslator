@@ -14,6 +14,7 @@ class Workflow {
       .setIcon(icon)
       .setCmd('🔊 ' + r.pronounce, r.pronounce)
       .setAlt('📣 ' + r.pronounce, r.pronounce)
+      .setCtrl('💾 添加到生词本', r.arg) 
       .setCopy(r.title)
       .setQuicklookurl(r.quicklookurl)
       .result();
