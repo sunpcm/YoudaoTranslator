@@ -56,7 +56,7 @@ class Youdao implements Adapter {
   private parseTranslation(translation: object) {
     if (translation) {
       const pronounce = this.isChinese ? translation[0] : this.word;
-      this.addResult( translation[0], this.word, translation[0], pronounce );
+      this.addResult( translation[0], this.word, pronounce, pronounce );
     }
   }
 
@@ -65,7 +65,7 @@ class Youdao implements Adapter {
       let pronounce;
       basic.explains.forEach((explain) => {
         pronounce = this.isChinese ? explain : this.word;
-        this.addResult(explain, this.word, explain, pronounce);
+        this.addResult(explain, this.word, pronounce, pronounce);
       });
 
       if (basic.phonetic) {
@@ -125,7 +125,7 @@ class Youdao implements Adapter {
     if (web) {
       web.forEach((item, index) => {
         let pronounce = this.isChinese ? item.value[0] : item.key;
-        this.addResult( item.value.join(", "), item.key, item.value[0], pronounce);
+        this.addResult( item.value.join(", "), item.key, pronounce, pronounce);
       });
     }
   }

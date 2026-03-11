@@ -6,9 +6,10 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json'
 
 export default {
-  input: 'src/index.ts',
+  input: ['src/index.ts', 'src/add_word.ts'],
   output: {
-    dir: 'dist'
+    dir: 'dist',
+    format: 'es'
   },
   
   plugins: [
