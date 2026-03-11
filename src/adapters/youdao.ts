@@ -1,6 +1,6 @@
 import { Adapter, Result } from "./adapter";
 import md5 from "../libs/md5";
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 
 class Youdao implements Adapter {
   key: string;
